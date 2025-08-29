@@ -1,0 +1,29 @@
+app:
+  name: "Praful Kumar"          # TODO: set your real name or pass via --app.name
+  regNo: "22BBS0120"         # TODO: set your real reg no or pass via --app.regNo
+  email: "praful.kumar1710@gmail.com" # TODO: set your real email or pass via --app.email
+
+  # Remote endpoints
+  baseUrl: "https://bfhldevapigw.healthrx.co.in"
+  generateEndpoint: "/hiring/generateWebhook/JAVA"
+  submitEndpoint: "/hiring/testWebhook/JAVA" # fallback if webhook missing in response
+
+  # Safety toggle: true => run everything EXCEPT the final submit
+  dryRun: false
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:bfh;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.reactive.function.client: INFO
+
